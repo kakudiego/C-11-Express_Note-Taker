@@ -70,11 +70,28 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    id: noteID(), // call for the function to add ID to new note
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
   });
+};
+
+// create number ID for the delete function
+const noteID = () => {
+  const characters = '1234567890';
+  let newID = [];
+
+  // simple id with 3 'random' numbers
+  for (let i of Array(3).keys()) {
+    newID.push(characters[Math.floor(Math.random() * characters.length)]);
+  }
+
+  // concatenate all items in newID
+  newID = newID.join('');
+
+  return newID;
 };
 
 // Delete the clicked note
@@ -139,13 +156,7 @@ const renderNoteList = async (notes) => {
 
     if (delBtn) {
       const delBtnEl = document.createElement('i');
-      delBtnEl.classList.add(
-        'fas',
-        'fa-trash-alt',
-        'float-right',
-        'text-danger',
-        'delete-note'
-      );
+      delBtnEl.classList.add('fas', 'fa-trash-alt', 'float-right', 'text-danger', 'delete-note');
       delBtnEl.addEventListener('click', handleNoteDelete);
 
       liEl.append(delBtnEl);
