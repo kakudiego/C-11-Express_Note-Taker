@@ -54,6 +54,9 @@ If you have any questions, contact me at diegokaku@gmail.com.
 
 The following images/video demonstrates the application functionality.
 
+https://user-images.githubusercontent.com/94471049/158073129-d0666076-4d57-41b6-82ae-441206f7fb74.mp4
+
+
 #### Heroku:
 
 <img src="./public/assets/images/heroku1.png">
